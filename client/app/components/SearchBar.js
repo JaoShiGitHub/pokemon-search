@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 function SearchBar() {
   const [inputSearch, setInputSearch] = useState("");
