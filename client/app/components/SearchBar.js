@@ -5,6 +5,7 @@ import axios from "axios";
 
 function SearchBar() {
   const [inputSearch, setInputSearch] = useState("");
+  const [pokemon, setPokemon] = useState([])
 
   const handleInputSearch = (e) => setInputSearch(e.target.value);
 
