@@ -4,22 +4,37 @@ const app = express();
 const cors = require("cors");
 const PORT = 2024;
 
+let pokemonInfo = [];
+
 app.use(cors());
 
 app.get("/", (req, res) => {
   res.send("Hey Baby!");
 });
 
-app.get("/pokemon/:name", async (req, res) => {
-  const pokemonName = req.params.name.toLowerCase();
+const fetchPokemons = async () => {
   try {
-    const response = await axios.get(
-      `https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${pokemonName}`
+    const pokemons = await axios(
+      "https://pokeapi-proxy.freecodecamp.rocks/api/pokemon"
     );
-    res.json(response.data);
+    pokemonInfo = pokemons.results;
   } catch (error) {
-    console.error("Error fetching user:", error.message);
-    res.status(404).json({ error: "Not found pokemon" });
+    console.error("Error fetching data from external API: ", error);
+  }
+};
+
+fetchPokemons();
+
+app.get("/pokemon/:name", async (req, res) => {
+  const { path } = req.params;
+  const pokemon = pokemonInfo.find((pokemon) => {
+    pokemon.name === path || pokemon.id === path;
+  });
+
+  if (pokemon) {
+    res.json(pokemon);
+  } else {
+    res.status(404).json({ error: "Pokemon not found" });
   }
 });
 
