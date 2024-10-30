@@ -6,7 +6,7 @@ const PORT = 2024;
 
 let pokemonInfo = [];
 
-app.use(cors());
+app.use(cors()); // Allow all origins for simplicity
 
 app.get("/", (req, res) => {
   res.send("Hey Baby!");
@@ -14,10 +14,11 @@ app.get("/", (req, res) => {
 
 const fetchPokemons = async () => {
   try {
-    const pokemons = await axios(
+    const response = await axios(
       "https://pokeapi-proxy.freecodecamp.rocks/api/pokemon"
     );
-    pokemonInfo = pokemons.results;
+    const data = await response.json();
+    pokemonInfo = data.results;
   } catch (error) {
     console.error("Error fetching data from external API: ", error);
   }
