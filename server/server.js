@@ -19,7 +19,7 @@ app.get("/pokemon/:keyword", async (req, res) => {
   if (keyword) {
     try {
       const response = await axios(
-        `https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${keyword}`
+        `https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${keyword.toLowerCase()}`
       );
       const data = response.data;
       res.send(data);
