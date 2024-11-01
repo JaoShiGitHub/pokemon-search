@@ -13,31 +13,20 @@ app.get("/test-server", (req, res) => {
   res.send(url.url);
 });
 
-const fetchPokemons = async () => {
-  try {
-    const response = await axios(
-      "https://pokeapi-proxy.freecodecamp.rocks/api/pokemon"
-    );
-    const data = response.data;
-    pokemonInfo = data.results;
-    console.log("Fetched data:", pokemonInfo);
-  } catch (error) {
-    console.error("Error fetching data from external API: ", error);
-  }
-};
-
-fetchPokemons();
-
 app.get("/pokemon/:keyword", async (req, res) => {
   const { keyword } = req.params;
-  const pokemon = pokemonInfo.find((pokemon) => {
-    return (
-      pokemon.name.toLowerCase() === keyword || `${pokemon.id}` === keyword
-    );
-  });
 
-  if (pokemon) {
-    res.json(pokemon);
+  if (keyword) {
+    try {
+      const response = await axios(
+        `https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${keyword}`
+      );
+      const data = response.data;
+      res.send(data);
+    } catch (error) {
+      console.error("Error fetching Pokémon data:", error);
+      res.status(500).send("Error fetching Pokémon data");
+    }
   } else {
     res.status(404).json({ error: "Pokemon not found" });
   }
