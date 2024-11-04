@@ -12,16 +12,26 @@ function SearchBar() {
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        value={pokemonKeyword}
-        placeholder="Search Pokemon"
-        onChange={handleInputSearch}
-      />
-      <Link href={{ pathname: "/pokemon", query: { name: pokemonKeyword } }}>
-        See Pokemon
-      </Link>
+    <div className="w-full h-full flex flex-col justify-center items-center">
+      <section className="">
+        <img alt="Pokémon" />
+        <h1 className="text-white font-bold">Pokémon Search</h1>
+        <div className="bg-[#1E1E1E] flex justify-center items-center">
+          <input
+            className="bg-[#1E1E1E] w-full h-7"
+            type="text"
+            value={pokemonKeyword}
+            placeholder="Search for Pokémon Name or ID"
+            onChange={handleInputSearch}
+          />
+          <Link
+            href={{ pathname: "/pokemon", query: { name: pokemonKeyword } }}
+          >
+            See Pokemon
+          </Link>
+        </div>
+      </section>
+      <footer className="text-white font-thin">Created by JaoShi</footer>
     </div>
   );
 }
