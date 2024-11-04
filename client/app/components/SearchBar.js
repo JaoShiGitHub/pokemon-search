@@ -13,9 +13,9 @@ function SearchBar() {
 
   return (
     <div className="w-full h-full flex flex-col justify-center items-center">
-      <section className="">
-        <img alt="Pokémon" />
-        <h1 className="text-white font-bold">Pokémon Search</h1>
+      <section className="w-full flex flex-col items-center">
+        <img alt="Pokémon" src="pokemon-group-pic.png" className="w-2/4" />
+        <h1 className="text-white font-bold text-4xl">Pokémon Search</h1>
         <div className="bg-[#1E1E1E] flex justify-center items-center">
           <input
             className="bg-[#1E1E1E] w-full h-7"
