@@ -1,28 +1,27 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
+import React from "react";
 
 function SearchBar() {
-  const router = useRouter();
-  const [inputSearch, setInputSearch] = useState("");
+  const [pokemonKeyword, setPokemonKeyword] = useState("");
 
-  const handleInputSearch = (e) => setInputSearch(e.target.value);
-
-  const handleOnClickSearchBtn = async () => {
-    const keyword = inputSearch;
-    router.push(`/results/${keyword}`);
+  const handleInputSearch = (e) => {
+    setPokemonKeyword(e.target.value);
   };
 
   return (
     <div>
       <input
         type="text"
-        value={inputSearch}
+        value={pokemonKeyword}
         placeholder="Search Pokemon"
         onChange={handleInputSearch}
       />
-      <button onClick={handleOnClickSearchBtn}>search</button>
+      <Link href={{ pathname: "/pokemon", query: { name: pokemonKeyword } }}>
+        See Pokemon
+      </Link>
     </div>
   );
 }
