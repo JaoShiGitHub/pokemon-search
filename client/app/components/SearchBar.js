@@ -12,13 +12,13 @@ function SearchBar() {
   };
 
   return (
-    <div className="w-full h-full flex flex-col justify-center items-center">
-      <section className="w-full flex flex-col items-center">
-        <img alt="Pokémon" src="pokemon-group-pic.png" className="w-2/4" />
+    <div className=" w-full h-full flex flex-col justify-center items-center gap-60">
+      <section className="px-8 w-full flex flex-col items-center gap-7 rounded-md">
+        <img alt="Pokémon" src="pokemon-group-pic.png" className="w-1/3" />
         <h1 className="text-white font-bold text-4xl">Pokémon Search</h1>
-        <div className="bg-[#1E1E1E] flex justify-center items-center">
+        <div className="px-10 h-12 w-1/2 rounded-lg bg-[#1E1E1E] flex justify-center items-center">
           <input
-            className="bg-[#1E1E1E] w-full h-7"
+            className="bg-[#1E1E1E] text-white outline-none w-full h-7 "
             type="text"
             value={pokemonKeyword}
             placeholder="Search for Pokémon Name or ID"
@@ -27,7 +27,7 @@ function SearchBar() {
           <Link
             href={{ pathname: "/pokemon", query: { name: pokemonKeyword } }}
           >
-            See Pokemon
+            🔍
           </Link>
         </div>
       </section>
