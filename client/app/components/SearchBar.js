@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import React from "react";
 
 function SearchBar() {
   const [pokemonKeyword, setPokemonKeyword] = useState("");
+  const router = useRouter();
 
   const handleInputSearch = (e) => {
     setPokemonKeyword(e.target.value);
@@ -23,6 +25,11 @@ function SearchBar() {
             value={pokemonKeyword}
             placeholder="Search for Pokémon Name or ID"
             onChange={handleInputSearch}
+            onKeyDown={(e) => {
+              if (e.code === "Enter") {
+                router.push(`/pokemon?name=${pokemonKeyword}`);
+              }
+            }}
           />
           <Link
             href={{ pathname: "/pokemon", query: { name: pokemonKeyword } }}
