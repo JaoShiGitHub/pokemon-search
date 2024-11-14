@@ -3,6 +3,7 @@
 import axios from "axios";
 import { useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
+import NotFound from "../components/NotFound";
 
 function PokemonDetails() {
   const [pokemonData, setPokemonData] = useState([]);
@@ -16,13 +17,17 @@ function PokemonDetails() {
     setIsLoading(!isLoading);
     const findPokemon = async () => {
       try {
-        const res = await axios(`http://localhost:2024/pokemon/${pkmName}`);
+        const res = await axios(
+          `https://localhost:3000/api/pokemon/${pkmName}`
+        );
+        console.log(res.data);
         setPokemonData(res.data);
       } catch (err) {
         setError("Pokemon not found");
         console.log(error);
+      } finally {
+        setIsLoading(false);
       }
-      setIsLoading(false);
     };
 
     findPokemon();
@@ -43,23 +48,23 @@ function PokemonDetails() {
         />
         <button> 🔍</button>
       </div>
-      {pokemonData.length ? (
-        <section className="bg-[#1E1E1E] shadow-xl mb-40 py-12 rounded-[36px] text-white flex max-w-4xl w-full  justify-center items-center gap-14">
-          <img
-            className="w-[290px] "
-            alt={pokemonData.name}
-            src={pokemonData.sprites?.front_default}
-          />
-          <div className="mt-4">
-            <div className="flex flex-col gap-3">
-              <h1 className="uppercase text-lg mb-2">
-                #{pokemonData.id} {pokemonData.name}
-              </h1>
-              <div className="uppercase flex gap-x-10">
-                <span>glass</span>
-                <span>poison</span>
-              </div>
-              {/* <div>
+      {/* {pokemonData.length ? ( */}
+      <section className="bg-[#1E1E1E] shadow-xl mb-40 py-12 rounded-[36px] text-white flex max-w-4xl w-full  justify-center items-center gap-14">
+        <img
+          className="w-[290px] "
+          alt={pokemonData.name}
+          src={pokemonData.sprites?.front_default}
+        />
+        <div className="mt-4">
+          <div className="flex flex-col gap-3">
+            <h1 className="uppercase text-lg mb-2">
+              #{pokemonData.id} {pokemonData.name}
+            </h1>
+            <div className="uppercase flex gap-x-10">
+              <span>glass</span>
+              <span>poison</span>
+            </div>
+            {/* <div>
             {pokemonTypes ? (
               pokemonTypes.map((type, index) => {
                 return <span key={index}>{type.name}</span>;
@@ -68,39 +73,39 @@ function PokemonDetails() {
               <h1>nooo</h1>
             )}
           </div> */}
-              <div className="flex gap-4">
-                <span>Weight: {pokemonData.weight}</span>
-                <span>Height: {pokemonData.height}</span>
-              </div>
-            </div>
-            <div className="mt-12 grid grid-cols-2 gap-x-12 gap-y-3">
-              <p className="flex justify-between font-bold">
-                HP <span className="font-normal">45</span>
-              </p>
-
-              <p className="flex justify-between">
-                Sp.Attack <span className="ml-12">65</span>
-              </p>
-
-              <p className="flex justify-between">
-                Attack <span>49</span>
-              </p>
-              <p className="flex justify-between">
-                Sp.Defense <span>65</span>
-              </p>
-
-              <p className="flex justify-between">
-                Defense <span>49</span>
-              </p>
-              <p className="flex justify-between">
-                Speed <span>65</span>
-              </p>
+            <div className="flex gap-4">
+              <span>Weight: {pokemonData.weight}</span>
+              <span>Height: {pokemonData.height}</span>
             </div>
           </div>
-        </section>
-      ) : (
-        <section>Pokemon not found</section>
-      )}
+          <div className="mt-12 grid grid-cols-2 gap-x-12 gap-y-3">
+            <p className="flex justify-between font-bold">
+              HP <span className="font-normal">45</span>
+            </p>
+
+            <p className="flex justify-between">
+              Sp.Attack <span className="ml-12">65</span>
+            </p>
+
+            <p className="flex justify-between">
+              Attack <span>49</span>
+            </p>
+            <p className="flex justify-between">
+              Sp.Defense <span>65</span>
+            </p>
+
+            <p className="flex justify-between">
+              Defense <span>49</span>
+            </p>
+            <p className="flex justify-between">
+              Speed <span>65</span>
+            </p>
+          </div>
+        </div>
+      </section>
+      {/* ) : (
+        <NotFound />
+      )} */}
       <footer className="text-white font-thin">Created by JaoShi</footer>
     </div>
   );
