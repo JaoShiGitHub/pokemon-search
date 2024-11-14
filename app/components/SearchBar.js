@@ -2,16 +2,15 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 import React from "react";
 
 function SearchBar() {
   const [pokemonKeyword, setPokemonKeyword] = useState("");
   const router = useRouter();
 
-  const handleInputSearch = (e) => {
-    setPokemonKeyword(e.target.value);
-  };
+  const handleInputSearch = (e) => setPokemonKeyword(e.target.value);
+
+  const handleOnClick = () => router.push(`/pokemon?name=${pokemonKeyword}`);
 
   return (
     <div className=" w-full h-full flex flex-col justify-center items-center gap-60">
@@ -31,11 +30,7 @@ function SearchBar() {
               }
             }}
           />
-          <Link
-            href={{ pathname: "/pokemon", query: { name: pokemonKeyword } }}
-          >
-            🔍
-          </Link>
+          <button onClick={handleOnClick}>🔍</button>
         </div>
       </section>
       <footer className="text-white font-thin">Created by JaoShi</footer>
