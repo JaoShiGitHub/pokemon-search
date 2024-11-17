@@ -32,6 +32,9 @@ function SearchBar() {
           />
           <button onClick={handleOnClick}>🔍</button>
         </div>
+        <p className="text-zinc-400 text-sm">
+          Search for Pokemon's name or number from 1 to 10277
+        </p>
       </section>
       <footer className="text-white font-thin">Created by JaoShi</footer>
     </div>
