@@ -12,6 +12,25 @@ Users can search for the Pokémon by its name or number 1 - 1025. The app fetche
 - View detailed Pokémon information, including types, stats, and abilities.
 - Responsive design for desktop and mobile.
 
+
+## Installation
+
+Clone the repository:
+```
+https://github.com/JaoShiGitHub/pokemon-card.git
+```
+Install dependencies:
+```
+npm install
+```
+Run the development server:
+```
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -28,7 +47,7 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
 
 You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
