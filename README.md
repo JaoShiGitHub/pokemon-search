@@ -6,7 +6,8 @@ A simple web application to search and view Pokémon details.
 
 
 ## Description
-Users can search for the Pokémon by its name or number 1 - 1025. The app fetches data from a Pokémon API and displays the details such as type, abilities, stats, and more.
+Users can search for the Pokémon by its name or number 1 - 1025. 
+The app fetches data from a Pokémon API and displays the details such as type, abilities, stats, and more.
 
 
 ## Features
