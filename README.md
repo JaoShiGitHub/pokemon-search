@@ -20,7 +20,7 @@ The app fetches data from a Pokémon API and displays the details such as type, 
 
 Clone the repository:
 ```
-https://github.com/JaoShiGitHub/pokemon-card.git
+https://github.com/JaoShiGitHub/pokemon-search.git
 ```
 Install dependencies:
 ```
