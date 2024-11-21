@@ -4,7 +4,13 @@ A simple web application to search and view Pokémon details.
 
 
 ## Description
-Users can search for the Pokémon by its name or numbers 1 - 1025. The app fetches data from a Pokémon API and displays the details such as type, abilities, stats, and more.
+Users can search for the Pokémon by its name or number 1 - 1025. The app fetches data from a Pokémon API and displays the details such as type, abilities, stats, and more.
+
+
+## Features
+- Search for Pokémon by name or numbers 1 - 1025.
+- View detailed Pokémon information, including types, stats, and abilities.
+- Responsive design for desktop and mobile.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
