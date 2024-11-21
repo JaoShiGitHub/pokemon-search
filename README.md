@@ -33,6 +33,15 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+
+## Usage
+
+- Navigate to the home page.
+- Enter the name or ID of a Pokémon in the search bar.
+- Click the "Search" button to view details about the Pokémon.
+- Use the search bar on the details page to search for another Pokémon.
+
+
 ## Learn More About Next.js
 
 Take a look at the following resources:
