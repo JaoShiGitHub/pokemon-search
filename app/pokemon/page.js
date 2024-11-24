@@ -54,8 +54,8 @@ function PokemonDetails() {
   };
 
   return (
-    <div className="bg-[#2C2C2C] h-screen flex flex-col items-center ">
-      <div className="bg-[#1E1E1E] hover:border-black hover:border-2 shadow-xl mt-20 mb-8 max-w-4xl w-full h-16 rounded-full flex justify-between px-10 py-5">
+    <div className="bg-[#2C2C2C] w-full h-screen flex flex-col items-center px-5">
+      <div className="bg-[#1E1E1E] hover:border-black hover:border-2 shadow-xl mt-20 mb-8 max-w-4xl  w-full h-16 rounded-full flex justify-between px-10 py-5">
         <input
           className="w-full bg-[#1E1E1E] text-white mr-5 outline-none"
           placeholder="Search for Pokémon Name or ID"
@@ -67,9 +67,9 @@ function PokemonDetails() {
       {isLoading ? (
         <NotFound resultMessage={"isLoading..."} />
       ) : (
-        <div>
+        <div className="max-w-4xl  w-full">
           {isLoading === false && pokemonData.length !== 0 ? (
-            <section className="bg-[#1E1E1E] shadow-xl mb-40 py-12 rounded-[36px] text-white flex max-w-4xl w-full  justify-center items-center gap-14">
+            <section className="bg-[#1E1E1E] shadow-xl mb-40 p-12 rounded-[36px] text-white flex laptop:flex-row mobile:flex-col  w-full justify-center items-center gap-14">
               <img
                 className="w-[290px] "
                 alt={pokemonData.name}
