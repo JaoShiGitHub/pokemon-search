@@ -49,4 +49,6 @@ Take a look at the following resources:
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
+
 ![Home Page](https://github.com/JaoShiGitHub/pokemon-search/blob/main/public/pkm-desktop.png?raw=true)
+![Pokémon Details](https://github.com/JaoShiGitHub/pokemon-search/blob/main/public/pkm-details.png?raw=true)
