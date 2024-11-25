@@ -13,7 +13,7 @@ function SearchBar() {
   const handleOnClick = () => router.push(`/pokemon?name=${pokemonKeyword}`);
 
   return (
-    <div className=" w-full h-full flex flex-col justify-center items-center gap-60">
+    <div className="w-full h-full flex flex-col justify-center items-center gap-60">
       <section className="px-8 w-full flex flex-col items-center gap-7 rounded-md">
         <img alt="Pokémon" src="pokemon-group-pic.png" className="w-1/3" />
         <h1 className="text-white font-bold text-4xl">Pokémon Search</h1>
@@ -33,7 +33,7 @@ function SearchBar() {
           <button onClick={handleOnClick}>🔍</button>
         </div>
         <p className="text-zinc-400 text-sm">
-          Search for Pokemon's name or number from 1 to 10277
+          Search for Pokemon's name or number from 1 to 1025
         </p>
       </section>
       <footer className="text-white font-thin">Created by JaoShi</footer>
