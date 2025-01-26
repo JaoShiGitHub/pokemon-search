@@ -11,11 +11,17 @@ function PokemonDetails() {
   const [error, setError] = useState(false);
 
   const router = useRouter();
+  const [pokemonName, setPokemonName] = useState("");
+  const [param, setParam] = useState("");
 
   useEffect(() => {
-    const pokemonName = new URLSearchParams(window.location.search).get("name");
+    setParam(new URLSearchParams(window.location.search).get("name"));
+  });
 
-    if (!pokemonName) return;
+  console.log(param);
+
+  useEffect(() => {
+    if (!param) return;
 
     setPokemonData([]);
     setError(false);
@@ -24,7 +30,7 @@ function PokemonDetails() {
       try {
         const res = await axios(
           // `http://localhost:3000/api/pokemon/${pokemonName}`
-          `https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${pokemonName}`
+          `https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${param}`
         );
         console.log(res.data);
         setPokemonData(res.data);
@@ -37,7 +43,7 @@ function PokemonDetails() {
     };
 
     findPokemon();
-  }, []);
+  }, [param]);
 
   const pokemonTypes = pokemonData?.types?.map((types) => types.type.name);
   console.log("Pokemon data", pokemonData);
