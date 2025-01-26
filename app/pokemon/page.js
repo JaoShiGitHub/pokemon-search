@@ -1,7 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import { useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import NotFound from "../components/NotFound";
 
@@ -12,10 +11,10 @@ function PokemonDetails() {
   const [error, setError] = useState(false);
 
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const pokemonName = searchParams.get("name");
 
   useEffect(() => {
+    const pokemonName = new URLSearchParams(window.location.search).get("name");
+
     if (!pokemonName) return;
 
     setPokemonData([]);
@@ -37,7 +36,7 @@ function PokemonDetails() {
     };
 
     findPokemon();
-  }, [pokemonName]);
+  }, []);
 
   const pokemonTypes = pokemonData?.types?.map((types) => types.type.name);
   console.log("Pokemon data", pokemonData);
