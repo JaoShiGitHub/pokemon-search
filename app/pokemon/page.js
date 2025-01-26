@@ -23,7 +23,8 @@ function PokemonDetails() {
     const findPokemon = async () => {
       try {
         const res = await axios(
-          `http://localhost:3000/api/pokemon/${pokemonName}`
+          // `http://localhost:3000/api/pokemon/${pokemonName}`
+          `https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${pokemonName}`
         );
         console.log(res.data);
         setPokemonData(res.data);
